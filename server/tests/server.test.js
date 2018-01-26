@@ -26,7 +26,7 @@ describe('POST/cakes', () => {
     .post('/cakes')
     .send(cakes[0])
     .expect(200)
-    expect((res) => {
+    .expect((res) => {
       expect(res.body.name).toBe(cakes[0].name);
       expect(res.body.comment).toBe(cakes[0].comment);
       expect(res.body.imageUrl).toBe(cakes[0].imageUrl);
@@ -41,7 +41,7 @@ describe('POST/cakes', () => {
        expect(cakesResult.length).toBe(1);
        expect(cakesResult[0].name).toBe(cakes[0].name);
        done();
-     });
+     }).catch((err) => done(err));
     });
-
-  });
+  })
+});
