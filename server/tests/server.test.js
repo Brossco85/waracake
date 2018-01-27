@@ -105,3 +105,24 @@ describe('GET/cakes/:id', () => {
     .end(done);
   });
 });
+
+describe('PUT/cakes/:id', () => {
+  it('should update the cake with new data', (done) => {
+    const hexId = cakes[0]._id.toHexString();
+    const body = {
+      comment: "Delicious Asda Chocolate Cake",
+      yumFactor: 4
+    }
+    request(app)
+    .put(`/cakes/${hexId}`)
+    .send(body)
+    .expect(200)
+    .expect((res) => {
+      expect(res.body.cake.comment).toBe(body.comment);
+      expect(res.body.cake.yumFactor).toBe(4);
+      expect(res.body.cake.name).toBe(cakes[0].name);
+    })
+    .end(done);
+  });
+
+});
