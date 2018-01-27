@@ -124,5 +124,25 @@ describe('PUT/cakes/:id', () => {
     })
     .end(done);
   });
+});
 
+describe('DELETE/cakes/:id', () => {
+  it('should remove the cake', (done) => {
+    const hexId = cakes[1]._id.toHexString();
+    request(app)
+    .delete(`/cakes/${hexId}`)
+    .expect(200)
+    .expect((res) => {
+      expect(res.body.cake._id).toBe(hexId);
+    })
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      Cake.findById(hexId).then((cake) => {
+        expect(cake).toNotExist();
+        done();
+      }).catch((err) => done(err));
+    })
+  });
 });
