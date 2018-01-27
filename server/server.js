@@ -67,6 +67,21 @@ app.put('/cakes/:id', (req, res) => {
   });
 });
 
+app.delete('/cakes/:id', (req, res) => {
+  const id = req.params.id;
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+  Cake.findByIdAndRemove(id).then((cake) => {
+    if (!cake) {
+      return res.status(404).send();
+    }
+    res.status(200).send({cake}); 
+  }).catch((err) => {
+    res.status(400).send();
+  });
+});
+
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
 });
