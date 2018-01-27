@@ -69,13 +69,13 @@ describe('POST/cakes', () => {
 
 describe('GET/cakes', () => {
 
-it('Should return a list of all cakes', (done) => {
-  request(app)
-  .get('/cakes')
-  .expect(200)
-  .expect((res) => {
-    expect(res.body.cakes.length).toBe(2);
+  it('Should return a list of all cakes', (done) => {
+    request(app)
+    .get('/cakes')
+    .expect(200)
+    .expect((res) => {
+      expect(res.body.cakes.length).toBe(2);
+    })
+    .end(done);
   })
-  .end(done);
-})
 })

@@ -26,6 +26,14 @@ app.post('/cakes', (req, res) => {
   });
 });
 
+app.get('/cakes', (req, res) => {
+  Cake.find().then((cakes) => {
+    res.status(200).send({cakes});
+  }, (err) => {
+    res.status(400).send(err);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
 });
