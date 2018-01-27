@@ -77,5 +77,31 @@ describe('GET/cakes', () => {
       expect(res.body.cakes.length).toBe(2);
     })
     .end(done);
+  });
+});
+
+describe('GET/cakes/:id', () => {
+  it('Should return cake based on the id', (done) => {
+    request(app)
+    .get(`/cakes/${cakes[0]._id.toHexString()}`)
+    .expect(200)
+    .expect((res) => {
+      expect(res.body.cake.name).toBe(cakes[0].name);
+    })
+    .end(done);
   })
-})
+
+  it('Should  return 404 if no cake with the id is found', (done) => {
+    request(app)
+    .get(`/cakes/${new ObjectId().toHexString()}`)
+    .expect(404)
+    .end(done);
+  });
+
+  it('Should return 404 is the cake id passed is invalid', (done) => {
+    request(app)
+    .get(`/cakes/12345`)
+    .expect(404)
+    .end(done);
+  });
+});
