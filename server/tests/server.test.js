@@ -36,7 +36,6 @@ describe('POST/cakes', () => {
       if (err) {
         return done(err);
       }
-
       Cake.find(cakes[0]).then((cakesResult) => {
        expect(cakesResult.length).toBe(1);
        expect(cakesResult[0].name).toBe(cakes[0].name);
@@ -44,4 +43,20 @@ describe('POST/cakes', () => {
      }).catch((err) => done(err));
     });
   })
+it('should not create a cake with invalid data', (done) => {
+  request(app)
+  .post('/cakes')
+  .send({})
+  .expect(400)
+  .end((err, res) => {
+    if (err) {
+      return done(err);
+    }
+    Cake.find().then((cakes) => {
+      expect(cakes.length).toBe(1);
+      done();
+    }).catch((err) => done(err));
+  })
+})
+
 });
