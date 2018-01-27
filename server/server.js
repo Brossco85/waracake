@@ -3,6 +3,7 @@ require('./config/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
+const _ = require('lodash');
 
 const {mongoose} = require('./db/mongoose');
 const {Cake} = require('./models/cake');
@@ -46,6 +47,23 @@ app.get('/cakes', (req, res) => {
     res.status(200).send({cakes});
   }, (err) => {
     res.status(400).send(err);
+  });
+});
+
+app.put('/cakes/:id', (req, res) => {
+  const id = req.params.id;
+  const body = _.pick(req.body, ['name', 'comment', 'imageUrl', 'yumFactor' ]);
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  Cake.findByIdAndUpdate(id, {$set: body}, {new: true}).then((cake) => {
+    if(!cake) {
+      res.status(404).send();
+    }
+    res.status(200).send({cake});
+  }).catch((err) => {
+    res.status(400).send();
   });
 });
 
