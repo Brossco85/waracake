@@ -11,6 +11,13 @@ const cakes = [{
   comment: "Delicious Sainsbury's Chocolate Cake",
   imageUrl: "www.imager.com/cakeplaceholder",
   yumFactor: 5
+},
+{
+  _id: new ObjectId(),
+  name: "CheeseCake",
+  comment: "Delicious Home Made CheeseCake",
+  imageUrl: "www.imager.com/cakeplaceholder",
+  yumFactor: 5
 }];
 
 beforeEach((done) => {
@@ -43,20 +50,32 @@ describe('POST/cakes', () => {
      }).catch((err) => done(err));
     });
   })
-it('should not create a cake with invalid data', (done) => {
-  request(app)
-  .post('/cakes')
-  .send({})
-  .expect(400)
-  .end((err, res) => {
-    if (err) {
-      return done(err);
-    }
-    Cake.find().then((cakes) => {
-      expect(cakes.length).toBe(1);
-      done();
-    }).catch((err) => done(err));
+  it('should not create a cake with invalid data', (done) => {
+    request(app)
+    .post('/cakes')
+    .send({})
+    .expect(400)
+    .end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+      Cake.find().then((cakesResult) => {
+        expect(cakesResult.length).toBe(2);
+        done();
+      }).catch((err) => done(err));
+    })
   })
-})
-
 });
+
+describe('GET/cakes', () => {
+
+it('Should return a list of all cakes', (done) => {
+  request(app)
+  .get('/cakes')
+  .expect(200)
+  .expect((res) => {
+    expect(res.body.cakes.length).toBe(2);
+  })
+  .end(done);
+})
+})
