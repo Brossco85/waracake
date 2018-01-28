@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCake } from '../actions';
 
 class CakesShow extends Component {
@@ -19,11 +20,11 @@ class CakesShow extends Component {
 
     return (
       <div>
-      <Link to="/">Back to All Cakes</Link>
         <h3>{cake.name}</h3>
         <h6>{cake.imageUrl}</h6>
         <h6>{cake.yumFactor}</h6>
         <p>{cake.comment}</p>
+        <Link to="/" className = 'btn btn-primary' >Back to All Cakes</Link>
       </div>
    );
   }

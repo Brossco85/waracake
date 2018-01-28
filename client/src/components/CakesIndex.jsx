@@ -13,8 +13,10 @@ class CakesIndex extends Component {
   renderCakes() {
     return _.map(this.props.cakes, cake => {
       return (
-        <li key={cake._id}>
+        <li className="list-group-item" key={cake._id}>
+          <Link to={`/cakes/${cake._id}`}>
           {cake.name}
+          </Link>
         </li>
         );
     });
