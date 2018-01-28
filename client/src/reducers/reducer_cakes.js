@@ -6,9 +6,9 @@ export default function(state = {}, action) {
     case FETCH_CAKE:
     // const cake = action.payload.data.cake;
     // const newState = { ...state};
-    // newState[post.id] = post;
+    // newState[cake._id] = cake;
     // return newState;
-    return {...state [action.payload.data.cake._id]: action.payload.data.cake };
+    return {...state, [action.payload.data.cake._id]: action.payload.data.cake };
     case FETCH_CAKES:
     return _.mapKeys(action.payload.data.cakes, '_id');
     default:

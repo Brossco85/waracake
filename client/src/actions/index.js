@@ -17,8 +17,8 @@ export function fetchCakes() {
 
 
 export function createCake(values, callback) {
-    const request = axios.post(`${ROOT_URL}/cakes`, values).
-    then(() => {callback()});
+    const request = axios.post(`${ROOT_URL}/cakes`, values)
+    .then(() => {callback()});
 
     return {
       type: CREATE_CAKE,
