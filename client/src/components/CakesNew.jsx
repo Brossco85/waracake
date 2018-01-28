@@ -4,7 +4,7 @@ class CakesNew extends Component {
   render() {
     return (
       <div>
-      Cakes New!
+        Cakes New!
       </div>
       );
   }

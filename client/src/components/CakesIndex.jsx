@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCakes } from '../actions';
 
 class CakesIndex extends Component {
@@ -22,12 +23,17 @@ class CakesIndex extends Component {
   render() {
     return  (
       <div>
+        <div className ="text-xs-right">
+          <Link className = 'btn btn-primary' to="/cakes/new">
+            Add A Cake
+          </Link>
+        </div>
       <h3>Waracakes List</h3>
       <ul>
-      {this.renderCakes()}
+        {this.renderCakes()}
       </ul>
-      </div>
-      );
+    </div>
+   );
   }
 }
 
