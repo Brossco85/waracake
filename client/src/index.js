@@ -9,16 +9,20 @@ import promise from 'redux-promise';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import reducers from './reducers';
 import CakesIndex from './components/CakesIndex';
 
-ReactDOM.render(
-  <BrowserRouter>
-    <div>
-      <Route path='/' component={CakesIndex} />
-    </div>
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-  </BrowserRouter>,
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+  <BrowserRouter>
+  <div>
+  <Route path='/' component={CakesIndex} />
+  </div>
+  </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
   );
 
-registerServiceWorker();
+// registerServiceWorker();
