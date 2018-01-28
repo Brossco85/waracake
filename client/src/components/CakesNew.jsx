@@ -25,7 +25,9 @@ class CakesNew extends Component {
   }
 
   onSubmit(values) {
-    this.props.createCake(values);
+    this.props.createCake(values, () => {
+    this.props.history.push('/');
+    });
   }
 
 
