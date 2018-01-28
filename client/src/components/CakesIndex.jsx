@@ -14,7 +14,7 @@ class CakesIndex extends Component {
     return _.map(this.props.cakes, cake => {
       return (
         <li key={cake._id}>
-        {cake.name}
+          {cake.name}
         </li>
         );
     });
