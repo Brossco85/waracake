@@ -8,4 +8,4 @@ class CakesShow extends Component {
   };
 }
 
-export default CakesShow
+export default CakesShow;
