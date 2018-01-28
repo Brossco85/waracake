@@ -1,6 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createCake } from '../actions';
 
 
 class CakesNew extends Component {
@@ -22,7 +25,7 @@ class CakesNew extends Component {
   }
 
   onSubmit(values) {
-    console.log(values);
+    this.props.createCake(values);
   }
 
 
@@ -34,9 +37,10 @@ class CakesNew extends Component {
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field label="Name" type="text" name="name" component={this.renderField}/>
         <Field label="Comment" type="text" name="comment" component={this.renderField}/>
-        <Field label="Image URL" type="text" name="imageurl" component={this.renderField}/>
-        <Field label="Yum Factor" type="number" name="yumfactor" component={this.renderField}/>
+        <Field label="Image URL" type="text" name="imageUrl" component={this.renderField}/>
+        <Field label="Yum Factor" type="number" name="yumFactor" component={this.renderField}/>
         <button type="submit" className="btn btn-primary">Submit</button>
+        <Link to="/" className = 'btn btn-danger'>Cancel</Link>
       </form>
       );
   }
@@ -53,16 +57,16 @@ function validate(values) {
     errors.comment = "Please enter a Comment to go with your cake";
   }
 
-  if(!values.imageurl) {
+  if(!values.imageUrl) {
     errors.imageurl = "Please include an image of your cake";
   }
 
-  if(_.isNil(values.yumfactor)) {
+  if(_.isNil(values.yumFactor)) {
     errors.yumfactor = "Please give the cake a Yum Factor!";
   }
 
-  if(values.yumfactor < 0 || values.yumfactor > 5) {
-    errors.yumfactor = "Please enter a Yum Factor Between 1 and 5";
+  if(values.yumFactor < 0 || values.yumFactor > 5) {
+    errors.yumFactor = "Please enter a Yum Factor Between 1 and 5";
   }
 
   return errors;
@@ -71,4 +75,6 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'CakesNewForm'
-})(CakesNew);
+})(
+connect(null, { createCake })(CakesNew)
+);
