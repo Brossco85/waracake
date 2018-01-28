@@ -1,6 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchCakes } from '../actions';
 
 class CakesIndex extends Component {
+
+  componentDidMount() {
+    this.props.fetchCakes();
+  }
+
   render() {
     return  (
       <div>
@@ -10,4 +17,4 @@ class CakesIndex extends Component {
   }
 }
 
-export default CakesIndex;
+export default connect(null, { fetchCakes })(CakesIndex);
