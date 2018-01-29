@@ -4,10 +4,10 @@ export const FETCH_CAKES = 'fetch_cakes';
 export const FETCH_CAKE = 'fetch_cake';
 export const CREATE_CAKE = 'create_cake';
 
-const ROOT_URL = 'http://localhost:3000'
+// const ROOT_URL = 'http://localhost:3001';
 
 export function fetchCakes() {
-  const request = axios.get(`${ROOT_URL}/cakes`);
+  const request = axios.get(`/cakes`);
 
   return {
     type: FETCH_CAKES,
@@ -17,7 +17,7 @@ export function fetchCakes() {
 
 
 export function createCake(values, callback) {
-    const request = axios.post(`${ROOT_URL}/cakes`, values)
+    const request = axios.post(`/cakes`, values)
     .then(() => {callback()});
 
     return {
@@ -27,7 +27,7 @@ export function createCake(values, callback) {
   }
 
 export function fetchCake(id) {
-  const request = axios.get(`${ROOT_URL}/cakes/${id}`);
+  const request = axios.get(`/cakes/${id}`);
 
   return {
     type: FETCH_CAKE,
