@@ -28,9 +28,19 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+        <div class="App">
+        <div class="App-header">
+          <h2>Home</h2>
+        </div>
+        <p class="App-intro">
+          Loading site...
+        </p>
+      </div
+      
+    </div>
 
-    <script>
+<!--     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('service-worker.js').then(function(registration) {
@@ -46,7 +56,7 @@
       } else {
         console.log('service worker is not supported');
       }
-    </script>
+    </script> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

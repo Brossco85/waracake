@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 import reducers from './reducers';
 import CakesIndex from './components/CakesIndex';
@@ -31,4 +31,4 @@ ReactDOM.render(
   document.getElementById('root')
   );
 
-// registerServiceWorker();
+registerServiceWorker();
