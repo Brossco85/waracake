@@ -14,7 +14,7 @@ class CakesIndex extends Component {
     return _.map(this.props.cakes, cake => {
       return (
         <li className="list-group-item" key={cake._id}>
-          <img width={100} height={100} src={"https://i.imgur.com/knJA4W9.jpg"} alt="10x10" className="rounded float-left"/>
+          <img width={100} height={100} src={cake.imageUrl} alt="10x10" className="rounded float-left"/>
           <Link to={`/cakes/${cake._id}`}>
           {cake.name}
           </Link>
