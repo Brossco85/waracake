@@ -26,15 +26,13 @@ class CakesIndex extends Component {
   render() {
     return  (
       <div>
-        <div className ="text-xs-right">
-          <Link className = 'btn btn-primary' to="/cakes/new">
-            Add A Cake
-          </Link>
-        </div>
       <h3>Waracakes List</h3>
       <ul>
         {this.renderCakes()}
       </ul>
+      <div className ="text-xs-left">
+        <Link className = 'btn btn-primary' to="/cakes/new">Add A Cake</Link>
+      </div>
     </div>
    );
   }

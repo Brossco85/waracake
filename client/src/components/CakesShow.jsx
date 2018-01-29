@@ -21,9 +21,9 @@ class CakesShow extends Component {
     return (
       <div>
         <img width={100} height={100} src={cake.imageUrl} alt="10x10" className="rounded float-left"/>
-        <h3>{cake.name}</h3>
-        <h6>{cake.yumFactor}</h6>
-        <p>{cake.comment}</p>
+        <h3>Cake Name: {cake.name}</h3>
+        <h6>Yum Factor: {cake.yumFactor}</h6>
+        <p>Cake Comment: {cake.comment}</p>
         <Link to="/" className = 'btn btn-primary' >Back to All Cakes</Link>
       </div>
    );
