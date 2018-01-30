@@ -13,8 +13,7 @@ Node.js <br>
 Express <br>
 MongoDB <br>
 
-<h2>Install and Run App Locally</h2> <br>
-
+<h2>Install and Run App Locally</h2>
 <h3>Requirements</h3> <br>
 
 Node.js with NPM - install instructions [Here](https://docs.npmjs.com/getting-started/installing-node) <br>
