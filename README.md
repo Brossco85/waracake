@@ -20,7 +20,7 @@ Node.js with NPM - install instructions [Here](https://docs.npmjs.com/getting-st
 MongoDB - install instructions [Here](https://docs.mongodb.com/manual/installation/) <br>
 
 1. Clone Repository using git clone https://github.com/Brossco85/waracake.git <br>
-2. From the Root Project folder npm install <br> 
+2. From the Root Project folder `npm install` <br> 
 3. `cd client` <br>
 4. `npm install` <br>
 5. `cd ..` <br>
