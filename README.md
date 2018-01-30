@@ -21,10 +21,10 @@ MongoDB - install instructions [Here](https://docs.mongodb.com/manual/installati
 
 1. Clone Repository using git clone https://github.com/Brossco85/waracake.git <br>
 2. From the Root Project folder npm install <br> 
-3. cd client <br>
-4. npm install <br>
-5. cd .. <br>
-6. npm start <br>
+3. `cd client` <br>
+4. `npm install` <br>
+5. `cd ..` <br>
+6. `npm start` <br>
 7. start mongodb locally <br>
 8. application will be available in your browser at localhost:3000 <br>
 
@@ -40,4 +40,4 @@ Mocha <br>
 Super Test <br>
 Nodemon <br>
 
-Run tests using npm test from the root directory
+Run tests using `npm test` from the root directory
