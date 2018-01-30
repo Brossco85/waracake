@@ -1,8 +1,8 @@
 <h1>waracake</h1>
 A Simple RESTful Cake Listing App built using the following Technologies: <br>
 
-<b>Front End</b>
-React
+<b>Front End</b> <br>
+React <br>
 Create-React-App <br>
 React-Router <br>
 Redux <br>
@@ -34,8 +34,7 @@ A simple build of the app is available at <br>
 
 http://waracake-app.herokuapp.com/ <br>
 
-<h2>Test Suite</h2> <br>
-
+<h2>Test Suite</h2>
 Expect <br>
 Mocha <br>
 Super Test <br>
