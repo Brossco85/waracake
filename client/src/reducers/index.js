@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from "redux-form";
-import CakesReducer from './reducer_cakes';
+import CakesReducer from './reducerCakes';
 
 const rootReducer = combineReducers({
   cakes: CakesReducer,
