@@ -8,8 +8,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: rgba(51,51,51,1);
+  height: 90px;
   padding: 20px;
   color: white;
 }
@@ -21,6 +21,11 @@
 .App-intro {
   font-size: large;
 }
+
+.navbar-brand {
+    padding: 0px 15px;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

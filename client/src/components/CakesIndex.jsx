@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchCakes } from '../actions';
+import { Image, ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 
 class CakesIndex extends Component {
 
@@ -13,12 +14,13 @@ class CakesIndex extends Component {
   renderCakes() {
     return _.map(this.props.cakes, cake => {
       return (
-        <li className="list-group-item" key={cake._id}>
-          <img width={100} height={100} src={cake.imageUrl} alt="10x10" className="rounded float-left"/>
+        <ListGroupItem key={cake._id}>
+          <Image width={120} height={120} src={cake.imageUrl} alt="100x100" className="rounded"/>
+          <Badge>{cake.yumFactor}</Badge>
           <Link to={`/cakes/${cake._id}`}>
-          {cake.name}
+          <h1>{cake.name}</h1>
           </Link>
-        </li>
+        </ListGroupItem>
         );
     });
   }
@@ -27,9 +29,9 @@ class CakesIndex extends Component {
     return  (
       <div>
       <h3>Waracakes List</h3>
-      <ul>
+      <ListGroup>
         {this.renderCakes()}
-      </ul>
+      </ListGroup>
       <div className ="text-xs-left">
         <Link className = 'btn btn-primary' to="/cakes/new">Add A Cake</Link>
       </div>
